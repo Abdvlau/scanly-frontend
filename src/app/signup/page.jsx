@@ -57,9 +57,6 @@ const SignUpRegistrationForm = () => {
                         <input type="text" name="username" placeholder="Username" value={formData.username} onChange={handleChange} className="w-full p-2 mb-4 border rounded" />
                         <input type="text" name="password" placeholder="Password" value={formData.password} onChange={handleChange} className="w-full p-2 mb-4 border rounded" />
                         <input type="text" name="enrollment_id" placeholder="Enrollment Id" value={formData.enrollment_id} onChange={handleChange} className="w-full p-2 mb-4 border rounded" />
-                        <input type="email" name="email" placeholder="Email" value={formData.email} onChange={handleChange} className="w-full p-2 mb-4 border rounded" />
-                        <input type="text" name="department" placeholder="Department" value={formData.department} onChange={handleChange} className="w-full p-2 mb-4 border rounded" />
-                        <input type="text" name="year" placeholder="Year" value={formData.year} onChange={handleChange} className="w-full p-2 mb-4 border rounded" />
                         {registrationError && <div className="text-red-500 mb-4">{registrationError}</div>}
                         {registrationSuccess && <div className="text-green-500 mb-4">{registrationSuccess}</div>}
                         <div className="flex justify-between items-center">
