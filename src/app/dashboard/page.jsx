@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React, { useState, useEffect } from 'react';
 import { useRouter } from "next/navigation";
 
@@ -156,10 +156,10 @@ const DashboardPage = () => {
     const Attendance = () => (
         <div className="bg-[#ffffff19] p-6 mb-6 rounded-lg">
             <h2 className="text-lg font-bold mb-4 text-gray-400">Take Attendance</h2>
-            <div className="flex items-center space-x-4">
-                <div>
-                    <label htmlFor="course" className="text-gray-400">Course:</label>
-                    <select id="course" value={selectedCourse} onChange={handleCourseChange} className="border border-gray-300 rounded p-2 bg-blue-950 text-gray-400">
+            <div className="flex flex-col sm:flex-row sm:items-center sm:space-x-4 space-y-4 sm:space-y-0">
+                <div className="flex-1">
+                    <label htmlFor="course" className="text-gray-400 block mb-2">Course:</label>
+                    <select id="course" value={selectedCourse} onChange={handleCourseChange} className="border border-gray-300 rounded p-2 w-full bg-blue-950 text-gray-400">
                         <option value="">-- Select Course --</option>
                         <option value="AEROSPACE ENGINEERING">AEROSPACE ENGINEERING</option>
                         <option value="AIR ENGINEERING">AIR ENGINEERING</option>
@@ -187,15 +187,17 @@ const DashboardPage = () => {
                         <option value="ELECTRICAL ENGINEERING">ELECTRICAL ENGINEERING</option>
                     </select>
                 </div>
-                <div>
-                    <label htmlFor="date" className="text-gray-400">Date:</label>
-                    <input type="date" id="date" value={selectedDate} onChange={handleDateChange} className="border border-gray-300 rounded p-2" />
+                <div className="flex-1">
+                    <label htmlFor="date" className="text-gray-400 block mb-2">Date:</label>
+                    <input type="date" id="date" value={selectedDate} onChange={handleDateChange} className="border border-gray-300 rounded p-2 w-full bg-blue-950 text-gray-400" />
                 </div>
-                <div>
-                    <label htmlFor="time" className="text-gray-400">Time:</label>
-                    <input type="time" id="time" value={selectedTime} onChange={handleTimeChange} className="border border-gray-300 rounded p-2" />
+                <div className="flex-1">
+                    <label htmlFor="time" className="text-gray-400 block mb-2">Time:</label>
+                    <input type="time" id="time" value={selectedTime} onChange={handleTimeChange} className="border border-gray-300 rounded p-2 w-full bg-blue-950 text-gray-400" />
                 </div>
-                <button onClick={markAttendance} className="bg-blue-500 text-white px-4 py-2 rounded-lg">Take Attendance</button>
+                <div className="flex-1">
+                    <button onClick={markAttendance} className="bg-blue-500 text-white px-4 py-2 rounded-lg w-full sm:w-auto">Take Attendance</button>
+                </div>
             </div>
         </div>
     );
@@ -204,32 +206,35 @@ const DashboardPage = () => {
     const AttendanceRecords = () => (
         <div className="bg-[#ffffff19] p-6 mb-6 rounded-lg">
             <h2 className="text-lg font-bold mb-4 text-gray-400">Attendance Records</h2>
-            <table className="min-w-full bg-blue-950">
-                <thead>
-                    <tr>
-                        <th className="text-left py-2 px-4 bg-gray-800 text-gray-400">Course</th>
-                        <th className="text-left py-2 px-4 bg-gray-800 text-gray-400">Date</th>
-                        <th className="text-left py-2 px-4 bg-gray-800 text-gray-400">Time</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {attendanceRecords.map((record, index) => (
-                        <tr key={index}>
-                            <td className="py-2 px-4 text-gray-400">{record.course}</td>
-                            <td className="py-2 px-4 text-gray-400">{record.date}</td>
-                            <td className="py-2 px-4 text-gray-400">{record.time}</td>
+            <div className="overflow-x-auto">
+                <table className="min-w-full bg-blue-950">
+                    <thead>
+                        <tr>
+                            <th className="text-left py-2 px-4 bg-gray-800 text-gray-400">Course</th>
+                            <th className="text-left py-2 px-4 bg-gray-800 text-gray-400">Date</th>
+                            <th className="text-left py-2 px-4 bg-gray-800 text-gray-400">Time</th>
                         </tr>
-                    ))}
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        {attendanceRecords.map((record, index) => (
+                            <tr key={index}>
+                                <td className="py-2 px-4 text-gray-400">{record.course}</td>
+                                <td className="py-2 px-4 text-gray-400">{record.date}</td>
+                                <td className="py-2 px-4 text-gray-400">{record.time}</td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+            </div>
         </div>
     );
 
     return (
-        <div className='space-y-6'>
+        <div className='space-y-6 p-4 sm:p-6 lg:p-8'>
             <div className="text-center">
-                <h1 className="lg:text-4xl md:mb-0 flex justify-center text-2xl font-bold mb-4">
-                    <span className="italic text-gray-400">Welcome</span><span className="ml-1 text-gray-400 ">To the Student Dashboard</span>
+                <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4 text-gray-400">
+                    <span className="italic">Welcome</span>
+                    <span className="ml-1">To the Student Dashboard</span>
                 </h1>
             </div>
             <div className="flex justify-between items-center space-x-4"></div>
