@@ -15,7 +15,7 @@ export default function HomeNavbar() {
                     <div className='flex items-center justify-between h-16'>
                         <div className='flex items-center'>
                             <div className="flex shrink-0">
-                                <a href="/" className='text-white '>Scanly</a>
+                                <a href="https://abdvlau.github.io/scanly.github.io/" className='text-white '>Scanly</a>
                             </div>
                         </div>
                         <div className='hidden md:block'>
